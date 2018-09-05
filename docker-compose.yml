@@ -1,0 +1,10 @@
+---
+version: "3.5"
+services:
+  jenkins:
+    build: docker-jenkins
+  python-server:
+    build: python-systemd-http-server
+...
+
+  

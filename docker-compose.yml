@@ -1,8 +1,15 @@
 ---
-version: "3.5"
+version: "3.7"
 services:
   jenkins:
     build: docker-jenkins
+    ports:
+    -  "8080:8080"
+    volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    - "./jenkins/jobs:var/jenkins_home/jobs:Z"
+  local-registry:
+    image: docker.io/registry
   python-server:
     build: python-systemd-http-server
 ...
